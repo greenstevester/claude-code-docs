@@ -219,8 +219,8 @@
     "skills.md": {
       "original_url": "https://docs.claude.com/en/docs/claude-code/skills",
       "original_md_url": "https://docs.claude.com/en/docs/claude-code/skills.md",
-      "hash": "8da5989342f2600b8659c692922a14499645a0a03669920d18ebeaad7c9cd883",
-      "last_updated": "2025-10-23T15:05:00.120234"
+      "hash": "f8d6ff86c0537528598a02e44bceca26165ba811a5170927a698467bb68cbc8b",
+      "last_updated": "2025-10-23T21:04:27.949900"
     },
     "slash-commands.md": {
       "original_url": "https://docs.claude.com/en/docs/claude-code/slash-commands",
@@ -273,8 +273,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-10-23T18:06:25.948772",
-    "fetch_duration_seconds": 25.560923,
+    "last_fetch_completed": "2025-10-23T21:04:31.681751",
+    "fetch_duration_seconds": 24.7543,
     "total_pages_discovered": 44,
     "pages_fetched_successfully": 45,
     "pages_failed": 0,
@@ -284,7 +284,7 @@
     "total_files": 45,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2025-10-23T18:06:25.948797",
+  "last_updated": "2025-10-23T21:04:31.681791",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
