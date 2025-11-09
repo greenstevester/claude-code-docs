@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a community-maintained mirror of Claude Code documentation from https://docs.anthropic.com/en/docs/claude-code/. The project provides local access to documentation with automatic synchronization from the official Anthropic documentation site.
+This is a community-maintained mirror of Claude Code documentation from https://code.claude.com/docs/en/. The project provides local access to documentation with automatic synchronization from the official Claude Code documentation site.
 
 **Key Architecture Components:**
 
 1. **Documentation Fetcher** (`scripts/fetch_claude_docs.ts`): TypeScript/Bun-based script that discovers and fetches documentation from Anthropic's sitemap
-2. **Helper Script** (`scripts/claude-docs-helper.sh.template`): Bash script template for the `/docs` command functionality
+2. **Helper Script** (`scripts/claude-docs-helper.sh.template`): Bash script template for the `/claude-code-docs` command functionality
 3. **Installer** (`install.sh`): Deployment script that sets up the documentation mirror at `~/.claude-code-docs`
-4. **GitHub Actions** (`.github/workflows/update-docs.yml`): Automated workflow that runs every 3 hours to fetch updated documentation
+4. **GitHub Actions** (`.github/workflows/update-docs.yml`): Automated workflow that runs every 12 hours to fetch updated documentation
 
 ## Development Commands
 
@@ -93,7 +93,7 @@ The installer (`install.sh`) handles:
 3. **Dependencies Check**: Verifies `git`, `jq`, and `curl` are installed
 4. **Platform Detection**: Supports macOS and Linux (zsh/bash compatible)
 5. **Claude Code Integration**:
-   - Creates `/docs` command in `~/.claude/commands/docs.md`
+   - Creates `/claude-code-docs` command in `~/.claude/commands/claude-code-docs.md`
    - Sets up PreToolUse hook in `~/.claude/settings.json` for automatic updates
 6. **Cleanup**: Removes old installations after successful migration
 
@@ -101,7 +101,7 @@ The installer (`install.sh`) handles:
 - v0.1: Original version with user-specified paths
 - v0.2: Simplified with script-based system
 - v0.3: Fixed path at `~/.claude-code-docs` with improved stability
-- : Added changelog integration and full macOS/Linux compatibility
+- v0.3.3: Added changelog integration and full macOS/Linux compatibility
 
 ## Helper Script Architecture
 
@@ -126,8 +126,8 @@ The `docs/docs_manifest.json` tracks:
 {
   "files": {
     "topic.md": {
-      "original_url": "https://docs.claude.com/en/docs/claude-code/topic",
-      "original_md_url": "https://docs.claude.com/en/docs/claude-code/topic.md",
+      "original_url": "https://code.claude.com/docs/en/topic",
+      "original_md_url": "https://code.claude.com/docs/en/topic.md",
       "hash": "sha256-hash",
       "last_updated": "ISO-8601-timestamp"
     }
@@ -155,7 +155,7 @@ The `docs/docs_manifest.json` tracks:
 
 ## GitHub Actions Workflow
 
-The workflow (`.github/workflows/update-docs.yml`) runs every 3 hours and:
+The workflow (`.github/workflows/update-docs.yml`) runs every 12 hours and:
 
 1. Checks out the repository
 2. Sets up Bun runtime
@@ -199,10 +199,10 @@ This is handled by `urlToSafeFilename()` in the fetcher.
 
 When users install this tool, they get:
 
-- `/docs` command to read documentation topics
-- `/docs -t` to check sync status with GitHub
-- `/docs whats new` to see recent documentation changes
-- `/docs changelog` to read Claude Code release notes
+- `/claude-code-docs` command to read documentation topics
+- `/claude-code-docs -t` to check sync status with GitHub
+- `/claude-code-docs whats new` to see recent documentation changes
+- `/claude-code-docs changelog` to read Claude Code release notes
 - Automatic background updates when reading documentation
 - Local-first access (works offline with cached docs)
 
@@ -220,8 +220,8 @@ To fetch additional documentation beyond Claude Code docs:
 ### Debugging Fetch Issues
 
 1. Check fetch logs for HTTP status codes
-2. Verify sitemap is accessible: `curl https://docs.anthropic.com/sitemap.xml`
-3. Test individual page fetch: `curl https://docs.anthropic.com/en/docs/claude-code/hooks.md`
+2. Verify sitemap is accessible: `curl https://code.claude.com/docs/sitemap.xml`
+3. Test individual page fetch: `curl https://code.claude.com/docs/en/hooks.md`
 4. Review `fetch_metadata` in manifest for failure details
 
 ### Testing Installation Changes
@@ -229,9 +229,9 @@ To fetch additional documentation beyond Claude Code docs:
 1. Make changes to `install.sh`
 2. Test on clean system: `./install.sh`
 3. Test upgrade from previous version
-4. Verify `~/.claude/commands/docs.md` created correctly
+4. Verify `~/.claude/commands/claude-code-docs.md` created correctly
 5. Verify `~/.claude/settings.json` hook added correctly
-6. Test `/docs` command in Claude Code
+6. Test `/claude-code-docs` command in Claude Code
 
 ### Releasing New Versions
 
@@ -240,7 +240,7 @@ To fetch additional documentation beyond Claude Code docs:
 3. Update README.md with changelog
 4. Test installation on both macOS and Linux
 5. Commit and push to main branch
-6. Users get updates automatically on next `/docs` command
+6. Users get updates automatically on next `/claude-code-docs` command
 
 ## Platform-Specific Notes
 

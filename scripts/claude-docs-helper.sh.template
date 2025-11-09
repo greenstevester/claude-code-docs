@@ -24,7 +24,7 @@ sanitize_input() {
 # Function to print documentation header
 print_doc_header() {
     echo "📚 COMMUNITY MIRROR: https://github.com/greenstevester/claude-code-docs"
-    echo "📖 OFFICIAL DOCS: https://docs.anthropic.com/en/docs/claude-code"
+    echo "📖 OFFICIAL DOCS: https://code.claude.com/docs/en/"
     echo ""
 }
 
@@ -146,7 +146,7 @@ read_doc() {
                 echo ""
                 cat "$doc_path"
                 echo ""
-                echo "📖 Official page: https://docs.anthropic.com/en/docs/claude-code/$topic"
+                echo "📖 Official page: https://code.claude.com/docs/en/$topic"
                 return
             fi
         fi
@@ -183,7 +183,7 @@ read_doc() {
         if [[ "$topic" == "changelog" ]]; then
             echo "📖 Official source: https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"
         else
-            echo "📖 Official page: https://docs.anthropic.com/en/docs/claude-code/$topic"
+            echo "📖 Official page: https://code.claude.com/docs/en/$topic"
         fi
     else
         # Always show search interface - never error messages
@@ -196,7 +196,7 @@ read_doc() {
         
         if [[ -n "$keywords" ]]; then
             # Search for matching topics - escape the pattern
-            local escaped_keywords=$(echo "$keywords" | sed 's/[[\.*^$()+?{|]/\\&/g')
+            local escaped_keywords=$(echo "$keywords" | sed 's/[][\\.*^$()+?{|}]/\\&/g')
             local matches=$(ls "$DOCS_PATH/docs" | grep '\.md$' | sed 's/\.md$//' | grep -i -E "$(echo "$escaped_keywords" | tr ' ' '|')" | sort)
             
             if [[ -n "$matches" ]]; then
@@ -241,56 +241,67 @@ hook_check() {
 
 # Function to show what's new (simplified version)
 whats_new() {
-    # Temporarily disable strict error handling for this function
-    set +e
-    
     print_doc_header
-    
+
     # Auto-update first (synchronous - we need latest git history)
-    auto_update || true  # Don't fail if auto-update fails
-    
-    cd "$DOCS_PATH" 2>/dev/null || {
-        echo "❌ Error: Could not access documentation directory"
+    if ! auto_update; then
+        echo "⚠️  Could not sync with GitHub - showing cached history"
+        echo ""
+    fi
+
+    if ! cd "$DOCS_PATH" 2>/dev/null; then
+        echo "❌ Error: Could not access documentation directory at $DOCS_PATH"
+        echo "Please reinstall with:"
+        echo "curl -fsSL https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/install.sh | bash"
         return 1
-    }
-    
+    fi
+
     echo "📚 Recent documentation updates:"
     echo ""
-    
+
     # Get recent commits (simplified - just show all doc commits)
     local count=0
-    
+    local commits
+
+    # Get commits or fail gracefully
+    if ! commits=$(git log --oneline -10 -- docs/*.md 2>/dev/null | grep -v "Merge" || true); then
+        echo "❌ Error: Could not read git history"
+        echo "The repository may be corrupted. Try reinstalling."
+        return 1
+    fi
+
     # Show recent commits
     while IFS= read -r commit_line && [[ $count -lt 5 ]]; do
+        [[ -z "$commit_line" ]] && continue
+
         local hash=$(echo "$commit_line" | cut -d' ' -f1)
         local date=$(git show -s --format=%cr "$hash" 2>/dev/null || echo "unknown")
-        
+
         echo "• $date:"
         echo "  📎 https://github.com/greenstevester/claude-code-docs/commit/$hash"
-        
+
         # Show which docs changed
-        local changed_docs=$(git diff-tree --no-commit-id --name-only -r "$hash" -- docs/*.md 2>/dev/null | sed 's|docs/||' | sed 's|\.md$||' | head -5)
-        if [[ -n "$changed_docs" ]]; then
-            echo "$changed_docs" | while read -r doc; do
-                [[ -n "$doc" ]] && echo "  📄 $doc: https://docs.anthropic.com/en/docs/claude-code/$doc"
-            done
+        local changed_docs
+        if changed_docs=$(git diff-tree --no-commit-id --name-only -r "$hash" -- docs/*.md 2>/dev/null | sed 's|docs/||' | sed 's|\.md$||' | head -5); then
+            if [[ -n "$changed_docs" ]]; then
+                echo "$changed_docs" | while read -r doc; do
+                    [[ -n "$doc" ]] && echo "  📄 $doc: https://code.claude.com/docs/en/$doc"
+                done
+            fi
         fi
         echo ""
         ((count++))
-    done < <(git log --oneline -10 -- docs/*.md 2>/dev/null | grep -v "Merge" || true)
-    
+    done <<< "$commits"
+
     if [[ $count -eq 0 ]]; then
         echo "No recent documentation updates found."
+        echo "This might be a fresh installation."
         echo ""
     fi
-    
+
     echo "📎 Full changelog: https://github.com/greenstevester/claude-code-docs/commits/main/docs"
     echo "📚 COMMUNITY MIRROR - NOT AFFILIATED WITH ANTHROPIC"
-    
-    # Re-enable strict error handling
-    set -e
-    
-    # Ensure we always exit successfully
+
     return 0
 }
 

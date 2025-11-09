@@ -386,12 +386,36 @@ if [[ -f "$INSTALL_DIR/scripts/claude-docs-helper.sh.template" ]]; then
 else
     echo "  ⚠️  Template file missing, attempting recovery..."
     # Try to fetch just the template file
-    if curl -fsSL "https://raw.githubusercontent.com/greenstevester/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh.template" -o "$INSTALL_DIR/claude-docs-helper.sh" 2>/dev/null; then
+    local temp_script="$INSTALL_DIR/.claude-docs-helper.sh.tmp"
+    if curl -fsSL "https://raw.githubusercontent.com/greenstevester/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh.template" -o "$temp_script" 2>/dev/null; then
+        # Validate the downloaded content
+        if [[ ! -s "$temp_script" ]]; then
+            echo "  ❌ Downloaded file is empty"
+            rm -f "$temp_script"
+            exit 1
+        fi
+
+        # Check if it's a bash script
+        if ! head -1 "$temp_script" | grep -q "^#!/bin/bash"; then
+            echo "  ❌ Downloaded file is not a valid bash script"
+            rm -f "$temp_script"
+            exit 1
+        fi
+
+        # Check for expected content patterns
+        if ! grep -q "Claude Code Documentation Helper Script" "$temp_script"; then
+            echo "  ❌ Downloaded file doesn't appear to be the helper script"
+            rm -f "$temp_script"
+            exit 1
+        fi
+
+        # All validation passed - install it
+        mv "$temp_script" "$INSTALL_DIR/claude-docs-helper.sh"
         chmod +x "$INSTALL_DIR/claude-docs-helper.sh"
-        echo "  ✓ Helper script downloaded directly"
+        echo "  ✓ Helper script downloaded and validated"
     else
-        echo "  ❌ Failed to install helper script"
-        echo "  Please check your installation and try again"
+        echo "  ❌ Failed to download helper script"
+        echo "  Please check your internet connection and try again"
         exit 1
     fi
 fi
@@ -420,20 +444,20 @@ Examples of expected output:
 
 When reading a doc:
 📚 COMMUNITY MIRROR: https://github.com/greenstevester/claude-code-docs
-📖 OFFICIAL DOCS: https://docs.anthropic.com/en/docs/claude-code
+📖 OFFICIAL DOCS: https://code.claude.com/docs/en/
 
 [Doc content here...]
 
-📖 Official page: https://docs.anthropic.com/en/docs/claude-code/hooks
+📖 Official page: https://code.claude.com/docs/en/hooks
 
 When showing what's new:
 📚 Recent documentation updates:
 
 • 5 hours ago:
   📎 https://github.com/greenstevester/claude-code-docs/commit/eacd8e1
-  📄 data-usage: https://docs.anthropic.com/en/docs/claude-code/data-usage
+  📄 data-usage: https://code.claude.com/docs/en/data-usage
      ➕ Added: Privacy safeguards
-  📄 security: https://docs.anthropic.com/en/docs/claude-code/security
+  📄 security: https://code.claude.com/docs/en/security
      ✨ Data flow and dependencies section moved here
 
 📎 Full changelog: https://github.com/greenstevester/claude-code-docs/commits/main/docs

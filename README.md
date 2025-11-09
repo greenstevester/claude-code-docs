@@ -3,7 +3,7 @@
 [![Last Update](https://img.shields.io/github/last-commit/greenstevester/claude-code-docs/main.svg?label=docs%20updated)](https://github.com/greenstevester/claude-code-docs/commits/main)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-blue)]()
 
-Local mirror of Claude Code documentation files from https://claude-code-docs.anthropic.com/en/claude-code-docs/claude-code/, updated every 12 hours.
+Local mirror of Claude Code documentation files from https://code.claude.com/docs/en/, updated every 12 hours.
 
 **Quick Install**: `curl -fsSL https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/install.sh | bash`
 
