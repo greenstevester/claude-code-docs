@@ -35,12 +35,20 @@ afterEach(() => {
 });
 
 describe("urlToSafeFilename", () => {
-  test("converts basic path to filename", () => {
+  test("converts basic path to filename (old format)", () => {
     expect(urlToSafeFilename("/en/docs/claude-code/setup")).toBe("setup.md");
   });
 
-  test("converts path with subdirectory using double underscores", () => {
+  test("converts basic path to filename (new format)", () => {
+    expect(urlToSafeFilename("/docs/en/setup")).toBe("setup.md");
+  });
+
+  test("converts path with subdirectory using double underscores (old)", () => {
     expect(urlToSafeFilename("/en/docs/claude-code/sdk/migration-guide")).toBe("sdk__migration-guide.md");
+  });
+
+  test("converts path with subdirectory using double underscores (new)", () => {
+    expect(urlToSafeFilename("/docs/en/sdk/migration-guide")).toBe("sdk__migration-guide.md");
   });
 
   test("handles path without prefix", () => {
@@ -48,9 +56,6 @@ describe("urlToSafeFilename", () => {
   });
 
   test("handles path that already ends with .md", () => {
-    // The function strips the path and gets "setup.md" which doesn't end with "/" so it adds .md
-    // But actually the function logic will extract "setup.md" from the path, and since it ends with .md,
-    // it will still add .md based on the final check
     expect(urlToSafeFilename("/en/docs/claude-code/setup.md")).toBe("setup.md");
   });
 
@@ -62,19 +67,22 @@ describe("urlToSafeFilename", () => {
     expect(urlToSafeFilename("/claude-code/quickstart")).toBe("quickstart.md");
   });
 
-  test("handles deeply nested paths", () => {
+  test("handles deeply nested paths (old format)", () => {
     expect(urlToSafeFilename("/en/docs/claude-code/parent/child/grandchild")).toBe("parent__child__grandchild.md");
   });
 
+  test("handles deeply nested paths (new format)", () => {
+    expect(urlToSafeFilename("/docs/en/parent/child/grandchild")).toBe("parent__child__grandchild.md");
+  });
+
   test("handles path with multiple claude-code occurrences", () => {
-    // Should take the last occurrence
     const result = urlToSafeFilename("/claude-code/docs/claude-code/test");
     expect(result).toBe("test.md");
   });
 
-  test("handles path with subdirectory that already ends with .md", () => {
-    const result = urlToSafeFilename("/en/docs/claude-code/parent/child");
-    expect(result).toBe("parent__child.md");
+  test("handles new format full URL", () => {
+    const result = urlToSafeFilename("/docs/en/overview");
+    expect(result).toBe("overview.md");
   });
 });
 
@@ -395,7 +403,8 @@ describe("discoverSitemapAndBaseUrl", () => {
     let attemptCount = 0;
     const mockFetch = mock(async (url: string) => {
       attemptCount++;
-      if (attemptCount === 2 && url.includes("sitemap_index")) {
+      // First URL is now code.claude.com, second is docs.anthropic.com, third is sitemap_index
+      if (attemptCount === 3 && url.includes("sitemap_index")) {
         return {
           ok: true,
           text: async () => `<?xml version="1.0"?>
@@ -410,7 +419,7 @@ describe("discoverSitemapAndBaseUrl", () => {
     global.fetch = mockFetch as any;
 
     const result = await discoverSitemapAndBaseUrl();
-    expect(attemptCount).toBeGreaterThan(1);
+    expect(attemptCount).toBe(3);
     expect(result.baseUrl).toBeDefined();
   });
 
