@@ -98,13 +98,13 @@ export async function saveManifest(docsDir: string, manifest: Manifest): Promise
   manifest.last_updated = new Date().toISOString();
 
   // Get GitHub repository from environment or use default
-  const githubRepo = process.env.GITHUB_REPOSITORY || 'ericbuess/claude-code-docs';
+  const githubRepo = process.env.GITHUB_REPOSITORY || 'greenstevester/claude-code-docs';
   const githubRef = process.env.GITHUB_REF_NAME || 'main';
 
   // Validate repository name format (owner/repo)
   if (!/^[\w.-]+\/[\w.-]+$/.test(githubRepo)) {
     log.warning(`Invalid repository format: ${githubRepo}, using default`);
-    manifest.github_repository = 'ericbuess/claude-code-docs';
+    manifest.github_repository = 'greenstevester/claude-code-docs';
   } else {
     manifest.github_repository = githubRepo;
   }
@@ -477,7 +477,7 @@ async function main() {
   log.info("Starting Claude Code documentation fetch (TypeScript version)");
 
   // Log configuration
-  const githubRepo = process.env.GITHUB_REPOSITORY || 'ericbuess/claude-code-docs';
+  const githubRepo = process.env.GITHUB_REPOSITORY || 'greenstevester/claude-code-docs';
   log.info(`GitHub repository: ${githubRepo}`);
 
   // Create docs directory at repository root

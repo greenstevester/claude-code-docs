@@ -13,7 +13,7 @@ find_all_installations() {
     local paths=()
     
     # From command file
-    if [[ -f ~/.claude/commands/docs.md ]]; then
+    if [[ -f ~/.claude/commands/claude-code-docs.md ]]; then
         while IFS= read -r line; do
             if [[ "$line" =~ Execute:.*claude-code-docs ]]; then
                 local path=$(echo "$line" | grep -o '[^ "]*claude-code-docs[^ "]*' | head -1)
@@ -26,7 +26,7 @@ find_all_installations() {
                     paths+=("$(dirname "$path")")
                 fi
             fi
-        done < ~/.claude/commands/docs.md
+        done < ~/.claude/commands/claude-code-docs.md
     fi
     
     # From hooks
@@ -69,7 +69,7 @@ if [[ ${#installations[@]} -gt 0 ]]; then
 fi
 
 echo "This will remove:"
-echo "  • The /docs command from ~/.claude/commands/docs.md"
+echo "  • The /claude-code-docs command from ~/.claude/commands/claude-code-docs.md"
 echo "  • All claude-code-docs hooks from ~/.claude/settings.json"
 if [[ ${#installations[@]} -gt 0 ]]; then
     echo "  • Installation directories (if safe to remove)"
@@ -84,9 +84,9 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 # Remove command file
-if [[ -f ~/.claude/commands/docs.md ]]; then
-    rm -f ~/.claude/commands/docs.md
-    echo "✓ Removed /docs command"
+if [[ -f ~/.claude/commands/claude-code-docs.md ]]; then
+    rm -f ~/.claude/commands/claude-code-docs.md
+    echo "✓ Removed /claude-code-docs command"
 fi
 
 # Remove hooks
@@ -135,4 +135,4 @@ echo ""
 echo "✅ Uninstall complete!"
 echo ""
 echo "To reinstall:"
-echo "curl -fsSL https://raw.githubusercontent.com/ericbuess/claude-code-docs/main/install.sh | bash"
+echo "curl -fsSL https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/install.sh | bash"

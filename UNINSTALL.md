@@ -9,9 +9,9 @@ From anywhere, run:
 ~/.claude-code-docs/uninstall.sh
 ```
 
-Or use the docs command:
+Or use the claude-code-docs command:
 ```bash
-/docs uninstall
+/claude-code-docs uninstall
 ```
 
 ### For v0.2 or older (custom installation locations)
@@ -25,7 +25,7 @@ Navigate to your installation directory and run:
 
 The uninstaller will remove:
 
-1. **The /docs command** from `~/.claude/commands/docs.md`
+1. **The /claude-code-docs command** from `~/.claude/commands/claude-code-docs.md`
 2. **The auto-update hook** from `~/.claude/settings.json`
 3. **The installation directory**:
    - v0.3+: `~/.claude-code-docs`
@@ -37,7 +37,7 @@ If you prefer to uninstall manually:
 
 ### 1. Remove the command file:
 ```bash
-rm -f ~/.claude/commands/docs.md
+rm -f ~/.claude/commands/claude-code-docs.md
 ```
 
 ### 2. Remove the hook from Claude settings:
@@ -78,5 +78,5 @@ After uninstalling, there should be no traces left except:
 
 To reinstall after uninstalling:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ericbuess/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/install.sh | bash
 ```

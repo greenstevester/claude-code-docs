@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-# Claude Code Documentation Helper Script v0.3.3
-# This script handles all /docs command functionality  
+# Claude Code Documentation Helper Script
+# This script handles all /claude-code-docs command functionality
 # Installation path: ~/.claude-code-docs/claude-docs-helper.sh
 
 # Script version
@@ -23,7 +23,7 @@ sanitize_input() {
 
 # Function to print documentation header
 print_doc_header() {
-    echo "📚 COMMUNITY MIRROR: https://github.com/ericbuess/claude-code-docs"
+    echo "📚 COMMUNITY MIRROR: https://github.com/greenstevester/claude-code-docs"
     echo "📖 OFFICIAL DOCS: https://docs.anthropic.com/en/docs/claude-code"
     echo ""
 }
@@ -79,7 +79,7 @@ show_freshness() {
     if [[ ! -f "$MANIFEST" ]]; then
         echo "❌ Error: Documentation not found at ~/.claude-code-docs"
         echo "Please reinstall with:"
-        echo "curl -fsSL https://raw.githubusercontent.com/ericbuess/claude-code-docs/main/install.sh | bash"
+        echo "curl -fsSL https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/install.sh | bash"
         exit 1
     fi
     
@@ -203,7 +203,7 @@ read_doc() {
                 echo "Found these related topics:"
                 echo "$matches" | sed 's/^/  • /' 
                 echo ""
-                echo "Try: /docs <topic> to read a specific document"
+                echo "Try: /claude-code-docs <topic> to read a specific document"
             else
                 echo "No exact matches found. Here are all available topics:"
                 ls "$DOCS_PATH/docs" | grep '\.md$' | sed 's/\.md$//' | sort | column -c 80
@@ -228,7 +228,7 @@ list_docs() {
     echo ""
     ls "$DOCS_PATH/docs" | grep '\.md$' | sed 's/\.md$//' | sort | column -c 80
     echo ""
-    echo "Usage: /docs <topic> or /docs -t to check freshness"
+    echo "Usage: /claude-code-docs <topic> or /claude-code-docs -t to check freshness"
 }
 
 # Function for hook check (auto-update)
@@ -266,7 +266,7 @@ whats_new() {
         local date=$(git show -s --format=%cr "$hash" 2>/dev/null || echo "unknown")
         
         echo "• $date:"
-        echo "  📎 https://github.com/ericbuess/claude-code-docs/commit/$hash"
+        echo "  📎 https://github.com/greenstevester/claude-code-docs/commit/$hash"
         
         # Show which docs changed
         local changed_docs=$(git diff-tree --no-commit-id --name-only -r "$hash" -- docs/*.md 2>/dev/null | sed 's|docs/||' | sed 's|\.md$||' | head -5)
@@ -284,7 +284,7 @@ whats_new() {
         echo ""
     fi
     
-    echo "📎 Full changelog: https://github.com/ericbuess/claude-code-docs/commits/main/docs"
+    echo "📎 Full changelog: https://github.com/greenstevester/claude-code-docs/commits/main/docs"
     echo "📚 COMMUNITY MIRROR - NOT AFFILIATED WITH ANTHROPIC"
     
     # Re-enable strict error handling
@@ -302,7 +302,7 @@ uninstall() {
     echo ""
     
     echo "This will remove:"
-    echo "  • The /docs command from ~/.claude/commands/docs.md"
+    echo "  • The /claude-code-docs command from ~/.claude/commands/claude-code-docs.md"
     echo "  • The auto-update hook from ~/.claude/settings.json"
     echo "  • The installation directory ~/.claude-code-docs"
     echo ""

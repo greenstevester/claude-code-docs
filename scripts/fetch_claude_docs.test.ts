@@ -281,7 +281,7 @@ describe("saveManifest", () => {
       readFileSync(join(TEST_DOCS_DIR, "docs_manifest.json"), "utf-8")
     );
 
-    expect(saved.github_repository).toBe("ericbuess/claude-code-docs");
+    expect(saved.github_repository).toBe("greenstevester/claude-code-docs");
 
     if (originalRepo) process.env.GITHUB_REPOSITORY = originalRepo;
     else delete process.env.GITHUB_REPOSITORY;

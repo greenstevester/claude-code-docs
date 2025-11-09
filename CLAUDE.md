@@ -101,7 +101,7 @@ The installer (`install.sh`) handles:
 - v0.1: Original version with user-specified paths
 - v0.2: Simplified with script-based system
 - v0.3: Fixed path at `~/.claude-code-docs` with improved stability
-- v0.3.3: Added changelog integration and full macOS/Linux compatibility
+- : Added changelog integration and full macOS/Linux compatibility
 
 ## Helper Script Architecture
 

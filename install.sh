@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-# Claude Code Docs Installer v0.3.3 - Changelog integration and compatibility improvements
+# Claude Code Docs Installer  - Changelog integration and compatibility improvements
 # This script installs/migrates claude-code-docs to ~/.claude-code-docs
 
-echo "Claude Code Docs Installer v0.3.3"
+echo "Claude Code Docs Installer "
 echo "==============================="
 
 # Fixed installation location
@@ -43,7 +43,7 @@ find_existing_installations() {
     local paths=()
     
     # Check command file for paths
-    if [[ -f ~/.claude/commands/docs.md ]]; then
+    if [[ -f ~/.claude/commands/claude-code-docs.md ]]; then
         # Look for paths in the command file
         # v0.1 format: LOCAL DOCS AT: /path/to/claude-code-docs/docs/
         # v0.2+ format: Execute: /path/to/claude-code-docs/helper.sh
@@ -67,7 +67,7 @@ find_existing_installations() {
                     paths+=("$(dirname "$path")")
                 fi
             fi
-        done < ~/.claude/commands/docs.md
+        done < ~/.claude/commands/claude-code-docs.md
     fi
     
     # Check settings.json hooks for paths
@@ -133,7 +133,7 @@ migrate_installation() {
     
     # Fresh install at new location
     echo "Installing fresh at ~/.claude-code-docs..."
-    git clone -b "$INSTALL_BRANCH" https://github.com/ericbuess/claude-code-docs.git "$INSTALL_DIR"
+    git clone -b "$INSTALL_BRANCH" https://github.com/greenstevester/claude-code-docs.git "$INSTALL_DIR"
     cd "$INSTALL_DIR"
     
     # Remove old directory if safe
@@ -368,14 +368,14 @@ else
         echo "No existing installation found"
         echo "Installing fresh to ~/.claude-code-docs..."
         
-        git clone -b "$INSTALL_BRANCH" https://github.com/ericbuess/claude-code-docs.git "$INSTALL_DIR"
+        git clone -b "$INSTALL_BRANCH" https://github.com/greenstevester/claude-code-docs.git "$INSTALL_DIR"
         cd "$INSTALL_DIR"
     fi
 fi
 
 # Now we're in $INSTALL_DIR, set up the new script-based system
 echo ""
-echo "Setting up Claude Code Docs v0.3.3..."
+echo "Setting up Claude Code Docs ..."
 
 # Copy helper script from template
 echo "Installing helper script..."
@@ -386,7 +386,7 @@ if [[ -f "$INSTALL_DIR/scripts/claude-docs-helper.sh.template" ]]; then
 else
     echo "  ⚠️  Template file missing, attempting recovery..."
     # Try to fetch just the template file
-    if curl -fsSL "https://raw.githubusercontent.com/ericbuess/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh.template" -o "$INSTALL_DIR/claude-docs-helper.sh" 2>/dev/null; then
+    if curl -fsSL "https://raw.githubusercontent.com/greenstevester/claude-code-docs/$INSTALL_BRANCH/scripts/claude-docs-helper.sh.template" -o "$INSTALL_DIR/claude-docs-helper.sh" 2>/dev/null; then
         chmod +x "$INSTALL_DIR/claude-docs-helper.sh"
         echo "  ✓ Helper script downloaded directly"
     else
@@ -397,29 +397,29 @@ else
 fi
 
 # Always update command (in case it points to old location)
-echo "Setting up /docs command..."
+echo "Setting up /claude-code-docs command..."
 mkdir -p ~/.claude/commands
 
 # Remove old command if it exists
-if [[ -f ~/.claude/commands/docs.md ]]; then
+if [[ -f ~/.claude/commands/claude-code-docs.md ]]; then
     echo "  Updating existing command..."
 fi
 
-# Create simplified docs command
-cat > ~/.claude/commands/docs.md << 'EOF'
+# Create simplified claude-code-docs command
+cat > ~/.claude/commands/claude-code-docs.md << 'EOF'
 Execute the Claude Code Docs helper script at ~/.claude-code-docs/claude-docs-helper.sh
 
 Usage:
-- /docs - List all available documentation topics
-- /docs <topic> - Read specific documentation with link to official docs
-- /docs -t - Check sync status without reading a doc
-- /docs -t <topic> - Check freshness then read documentation
-- /docs whats new - Show recent documentation changes (or "what's new")
+- /claude-code-docs - List all available documentation topics
+- /claude-code-docs <topic> - Read specific documentation with link to official docs
+- /claude-code-docs -t - Check sync status without reading a doc
+- /claude-code-docs -t <topic> - Check freshness then read documentation
+- /claude-code-docs whats new - Show recent documentation changes (or "what's new")
 
 Examples of expected output:
 
 When reading a doc:
-📚 COMMUNITY MIRROR: https://github.com/ericbuess/claude-code-docs
+📚 COMMUNITY MIRROR: https://github.com/greenstevester/claude-code-docs
 📖 OFFICIAL DOCS: https://docs.anthropic.com/en/docs/claude-code
 
 [Doc content here...]
@@ -430,13 +430,13 @@ When showing what's new:
 📚 Recent documentation updates:
 
 • 5 hours ago:
-  📎 https://github.com/ericbuess/claude-code-docs/commit/eacd8e1
+  📎 https://github.com/greenstevester/claude-code-docs/commit/eacd8e1
   📄 data-usage: https://docs.anthropic.com/en/docs/claude-code/data-usage
      ➕ Added: Privacy safeguards
   📄 security: https://docs.anthropic.com/en/docs/claude-code/security
      ✨ Data flow and dependencies section moved here
 
-📎 Full changelog: https://github.com/ericbuess/claude-code-docs/commits/main/docs
+📎 Full changelog: https://github.com/greenstevester/claude-code-docs/commits/main/docs
 📚 COMMUNITY MIRROR - NOT AFFILIATED WITH ANTHROPIC
 
 Every request checks for the latest documentation from GitHub (takes ~0.4s).
@@ -445,7 +445,7 @@ The helper script handles all functionality including auto-updates.
 Execute: ~/.claude-code-docs/claude-docs-helper.sh "$ARGUMENTS"
 EOF
 
-echo "✓ Created /docs command"
+echo "✓ Created /claude-code-docs command"
 
 # Always update hook (remove old ones pointing to wrong location)
 echo "Setting up automatic updates..."
@@ -493,15 +493,15 @@ cleanup_old_installations
 
 # Success message
 echo ""
-echo "✅ Claude Code Docs v0.3.3 installed successfully!"
+echo "✅ Claude Code Docs  installed successfully!"
 echo ""
-echo "📚 Command: /docs (user)"
+echo "📚 Command: /claude-code-docs"
 echo "📂 Location: ~/.claude-code-docs"
 echo ""
 echo "Usage examples:"
-echo "  /docs hooks         # Read hooks documentation"
-echo "  /docs -t           # Check when docs were last updated"
-echo "  /docs what's new  # See recent documentation changes"
+echo "  /claude-code-docs hooks         # Read hooks documentation"
+echo "  /claude-code-docs -t           # Check when docs were last updated"
+echo "  /claude-code-docs what's new  # See recent documentation changes"
 echo ""
 echo "🔄 Auto-updates: Enabled - syncs automatically when GitHub has newer content"
 echo ""
