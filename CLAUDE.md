@@ -94,7 +94,6 @@ The installer (`install.sh`) handles:
 4. **Platform Detection**: Supports macOS and Linux (zsh/bash compatible)
 5. **Claude Code Integration**:
    - Creates `/claude-code-docs` command in `~/.claude/commands/claude-code-docs.md`
-   - Sets up PreToolUse hook in `~/.claude/settings.json` for automatic updates
 6. **Cleanup**: Removes old installations after successful migration
 
 **Installation Versions:**
@@ -107,16 +106,16 @@ The installer (`install.sh`) handles:
 
 The helper script (`claude-docs-helper.sh.template`) provides:
 
-- **Auto-update Logic**: Checks GitHub for newer commits and pulls automatically
+- **Auto-update Logic**: Checks GitHub for newer commits and pulls automatically when command is run
 - **Command Modes**:
   - Default: Read specific documentation topic
+  - `search <term>`: Search all documentation content with grep
   - `-t` / `--check`: Check documentation freshness status
   - `whats new`: Show recent documentation changes
   - `uninstall`: Display uninstall instructions
-  - `hook-check`: Background update check (called by PreToolUse hook)
 - **Git Integration**: Checks local vs remote commit status
 - **Input Sanitization**: Prevents command injection attacks
-- **Search Interface**: Suggests related topics when exact match not found
+- **Search Interface**: Full-text search across all documentation files
 
 ## Manifest File Structure
 
@@ -193,17 +192,18 @@ This is handled by `urlToSafeFilename()` in the fetcher.
 2. **Git Safety**: Installer checks for uncommitted changes before removing old installations
 3. **HTTPS Only**: All fetches use HTTPS
 4. **No Secrets**: No API keys or sensitive data required
-5. **Minimal Permissions**: PreToolUse hook only runs `git pull`
+5. **User-Initiated Updates**: Documentation updates only occur when user explicitly runs commands
 
 ## User-Facing Features
 
 When users install this tool, they get:
 
 - `/claude-code-docs` command to read documentation topics
+- `/claude-code-docs search <term>` to search all documentation content
 - `/claude-code-docs -t` to check sync status with GitHub
 - `/claude-code-docs whats new` to see recent documentation changes
 - `/claude-code-docs changelog` to read Claude Code release notes
-- Automatic background updates when reading documentation
+- Automatic updates when running commands (no background processes)
 - Local-first access (works offline with cached docs)
 
 ## Common Development Workflows
@@ -230,8 +230,7 @@ To fetch additional documentation beyond Claude Code docs:
 2. Test on clean system: `./install.sh`
 3. Test upgrade from previous version
 4. Verify `~/.claude/commands/claude-code-docs.md` created correctly
-5. Verify `~/.claude/settings.json` hook added correctly
-6. Test `/claude-code-docs` command in Claude Code
+5. Test `/claude-code-docs` command in Claude Code
 
 ### Releasing New Versions
 
@@ -272,8 +271,3 @@ bun install  # Install @types/bun
 
 ### Git merge conflicts in manifest
 The installer automatically handles manifest conflicts - they're expected when remote has updates.
-
-### Hook not triggering
-1. Check `~/.claude/settings.json` has correct path
-2. Restart Claude Code to reload settings
-3. Verify hook command is executable: `chmod +x ~/.claude-code-docs/claude-docs-helper.sh`

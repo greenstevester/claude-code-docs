@@ -40,7 +40,7 @@ Stop context-switching to your browser every time you need Claude Code documenta
 
 You need these tools installed:
 - **git** - For cloning and updating the repository (usually pre-installed)
-- **jq** - For JSON processing in the auto-update hook (pre-installed on macOS; Linux users may need `apt install jq` or `yum install jq`)
+- **jq** - For cleaning up legacy installations (pre-installed on macOS; Linux users may need `apt install jq` or `yum install jq`)
 - **curl** - For downloading the installation script (usually pre-installed)
 - **Claude Code** - Obviously :)
 
@@ -99,6 +99,7 @@ That's it! You now have instant local access to all Claude Code documentation.
 |---------|-------------|
 | `/claude-code-docs` | List all available topics |
 | `/claude-code-docs <topic>` | Read specific documentation instantly |
+| `/claude-code-docs search <term>` | Search all documentation content |
 | `/claude-code-docs -t` | Check sync status with GitHub |
 | `/claude-code-docs -t <topic>` | Check sync, then read docs |
 | `/claude-code-docs what's new` | Show recent doc changes with diffs |
@@ -113,6 +114,13 @@ That's it! You now have instant local access to all Claude Code documentation.
 /claude-code-docs mcp          # MCP server documentation
 /claude-code-docs memory       # Memory system docs
 /claude-code-docs quickstart   # Getting started guide
+```
+
+**Search documentation content:**
+```bash
+/claude-code-docs search environment       # Find all mentions of "environment"
+/claude-code-docs search "MCP server"      # Search for exact phrase
+/claude-code-docs search authentication    # Search across all 42 docs
 ```
 
 **Check for updates:**
@@ -133,8 +141,9 @@ That's it! You now have instant local access to all Claude Code documentation.
 ### How It Works
 
 - **Default mode**: Reads instantly from local files (< 0.1s)
+- **Search mode**: Greps through all 42 docs, shows matches with context
 - **With `-t` flag**: Checks GitHub first, pulls updates if available (~0.4s)
-- **Background updates**: Automatic sync when reading docs (transparent, no blocking)
+- **Auto-sync**: Each command automatically checks for documentation updates
 
 ## How Updates Work
 
@@ -223,7 +232,6 @@ See [UNINSTALL.md](UNINSTALL.md) for manual uninstall instructions.
 **What the installer does:**
 - Clones this repository to `~/.claude-code-docs` via HTTPS
 - Creates a slash command file at `~/.claude/commands/claude-code-docs.md`
-- Adds a hook to `~/.claude/settings.json` that runs `git pull` when you read docs
 
 **What it NEVER does:**
 - Send any data externally (100% local operations)

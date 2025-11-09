@@ -28,26 +28,7 @@ find_all_installations() {
             fi
         done < ~/.claude/commands/claude-code-docs.md
     fi
-    
-    # From hooks
-    if [[ -f ~/.claude/settings.json ]]; then
-        local hooks=$(jq -r '.hooks.PreToolUse[]?.hooks[]?.command // empty' ~/.claude/settings.json 2>/dev/null)
-        while IFS= read -r cmd; do
-            if [[ "$cmd" =~ claude-code-docs ]]; then
-                local found=$(echo "$cmd" | grep -o '[^ "]*claude-code-docs[^ "]*' || true)
-                while IFS= read -r path; do
-                    [[ -z "$path" ]] && continue
-                    path="${path/#\~/$HOME}"
-                    # Clean up path to get the claude-code-docs directory
-                    if [[ "$path" =~ (.*/claude-code-docs)(/.*)?$ ]]; then
-                        path="${BASH_REMATCH[1]}"
-                    fi
-                    [[ -d "$path" ]] && paths+=("$path")
-                done <<< "$found"
-            fi
-        done <<< "$hooks"
-    fi
-    
+
     # Deduplicate - handle empty array case
     if [[ ${#paths[@]} -gt 0 ]]; then
         printf '%s\n' "${paths[@]}" | sort -u
@@ -70,7 +51,7 @@ fi
 
 echo "This will remove:"
 echo "  • The /claude-code-docs command from ~/.claude/commands/claude-code-docs.md"
-echo "  • All claude-code-docs hooks from ~/.claude/settings.json"
+echo "  • Any legacy claude-code-docs hooks from ~/.claude/settings.json (if present)"
 if [[ ${#installations[@]} -gt 0 ]]; then
     echo "  • Installation directories (if safe to remove)"
 fi
@@ -89,11 +70,11 @@ if [[ -f ~/.claude/commands/claude-code-docs.md ]]; then
     echo "✓ Removed /claude-code-docs command"
 fi
 
-# Remove hooks
+# Remove hooks (legacy cleanup - newer versions don't use hooks)
 if [[ -f ~/.claude/settings.json ]]; then
     cp ~/.claude/settings.json ~/.claude/settings.json.backup
-    
-    # Remove ALL hooks containing claude-code-docs
+
+    # Remove ALL hooks containing claude-code-docs (from older installations)
     jq '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[] | select(.hooks[0].command | contains("claude-code-docs") | not)]' ~/.claude/settings.json > ~/.claude/settings.json.tmp
     
     # Clean up empty structures

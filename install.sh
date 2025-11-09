@@ -436,6 +436,7 @@ Execute the Claude Code Docs helper script at ~/.claude-code-docs/claude-docs-he
 Usage:
 - /claude-code-docs - List all available documentation topics
 - /claude-code-docs <topic> - Read specific documentation with link to official docs
+- /claude-code-docs search <term> - Search all documentation content
 - /claude-code-docs -t - Check sync status without reading a doc
 - /claude-code-docs -t <topic> - Check freshness then read documentation
 - /claude-code-docs whats new - Show recent documentation changes (or "what's new")
@@ -449,6 +450,15 @@ When reading a doc:
 [Doc content here...]
 
 📖 Official page: https://code.claude.com/docs/en/hooks
+
+When searching:
+🔍 Searching all documentation for: "environment"
+✅ Found 15 matches in 4 documents:
+
+📄 settings
+   https://code.claude.com/docs/en/settings
+   Line 42: Set environment variables in your shell
+   Line 98: ANTHROPIC_API_KEY environment variable
 
 When showing what's new:
 📚 Recent documentation updates:
@@ -471,45 +481,6 @@ EOF
 
 echo "✓ Created /claude-code-docs command"
 
-# Always update hook (remove old ones pointing to wrong location)
-echo "Setting up automatic updates..."
-
-# Simple hook that just calls the helper script
-HOOK_COMMAND="~/.claude-code-docs/claude-docs-helper.sh hook-check"
-
-if [ -f ~/.claude/settings.json ]; then
-    # Update existing settings.json
-    echo "  Updating Claude settings..."
-    
-    # First remove ALL hooks that contain "claude-code-docs" anywhere in the command
-    # This catches old installations at any path
-    jq '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[] | select(.hooks[0].command | contains("claude-code-docs") | not)]' ~/.claude/settings.json > ~/.claude/settings.json.tmp
-    
-    # Then add our new hook
-    jq --arg cmd "$HOOK_COMMAND" '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[]] + [{"matcher": "Read", "hooks": [{"type": "command", "command": $cmd}]}]' ~/.claude/settings.json.tmp > ~/.claude/settings.json
-    rm -f ~/.claude/settings.json.tmp
-    echo "✓ Updated Claude settings"
-else
-    # Create new settings.json
-    echo "  Creating Claude settings..."
-    jq -n --arg cmd "$HOOK_COMMAND" '{
-        "hooks": {
-            "PreToolUse": [
-                {
-                    "matcher": "Read",
-                    "hooks": [
-                        {
-                            "type": "command",
-                            "command": $cmd
-                        }
-                    ]
-                }
-            ]
-        }
-    }' > ~/.claude/settings.json
-    echo "✓ Created Claude settings"
-fi
-
 # Note: Do NOT modify docs_manifest.json - it's tracked by git and would break updates
 
 # Clean up old installations now that v0.3 is set up
@@ -517,7 +488,7 @@ cleanup_old_installations
 
 # Success message
 echo ""
-echo "✅ Claude Code Docs  installed successfully!"
+echo "✅ Claude Code Docs installed successfully!"
 echo ""
 echo "📚 Command: /claude-code-docs"
 echo "📂 Location: ~/.claude-code-docs"
@@ -527,9 +498,7 @@ echo "  /claude-code-docs hooks         # Read hooks documentation"
 echo "  /claude-code-docs -t           # Check when docs were last updated"
 echo "  /claude-code-docs what's new  # See recent documentation changes"
 echo ""
-echo "🔄 Auto-updates: Enabled - syncs automatically when GitHub has newer content"
-echo ""
 echo "Available topics:"
 ls "$INSTALL_DIR/docs" | grep '\.md$' | sed 's/\.md$//' | sort | column -c 60
 echo ""
-echo "⚠️  Note: Restart Claude Code for auto-updates to take effect"
+echo "💡 Tip: Each command automatically checks for documentation updates"

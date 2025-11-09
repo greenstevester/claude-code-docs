@@ -231,12 +231,62 @@ list_docs() {
     echo "Usage: /claude-code-docs <topic> or /claude-code-docs -t to check freshness"
 }
 
-# Function for hook check (auto-update)
-hook_check() {
-    # This is now just a passthrough since auto_update handles everything
-    # Note: We could potentially start a background fetch here for parallelization,
-    # but since git fetch only takes ~0.37s, the complexity isn't worth it
-    exit 0
+# Function to search documentation content
+search_docs() {
+    local search_term=$(sanitize_input "$1")
+
+    if [[ -z "$search_term" ]]; then
+        print_doc_header
+        echo "❌ Error: Please provide a search term"
+        echo ""
+        echo "Usage: /claude-code-docs search <term>"
+        echo "Example: /claude-code-docs search \"MCP server\""
+        return 1
+    fi
+
+    print_doc_header
+    echo "🔍 Searching all documentation for: \"$search_term\""
+    echo ""
+
+    # Search with grep, case-insensitive, show filename and line number
+    local results=$(grep -riIn --color=never "$search_term" "$DOCS_PATH/docs/" 2>/dev/null | grep '\.md:')
+
+    if [[ -z "$results" ]]; then
+        echo "❌ No matches found for \"$search_term\""
+        echo ""
+        echo "💡 Try:"
+        echo "  • Different keywords"
+        echo "  • Simpler search terms"
+        echo "  • /claude-code-docs (to see all topics)"
+        return 0
+    fi
+
+    # Count unique files
+    local file_count=$(echo "$results" | cut -d: -f1 | sort -u | wc -l | tr -d ' ')
+    local match_count=$(echo "$results" | wc -l | tr -d ' ')
+
+    echo "✅ Found $match_count matches in $file_count documents:"
+    echo ""
+
+    # Group results by file
+    local current_file=""
+    while IFS=: read -r filepath line_num content; do
+        # Extract just the filename without path
+        local filename=$(basename "$filepath" .md)
+
+        if [[ "$filename" != "$current_file" ]]; then
+            current_file="$filename"
+            echo "📄 $filename"
+            echo "   https://code.claude.com/docs/en/$filename"
+        fi
+
+        # Show the match with line number, trim leading whitespace
+        local trimmed_content=$(echo "$content" | sed 's/^[[:space:]]*//')
+        echo "   Line $line_num: $trimmed_content"
+    done <<< "$results"
+
+    echo ""
+    echo "💡 To read a specific document: /claude-code-docs <topic>"
 }
 
 # Function to show what's new (simplified version)
@@ -370,8 +420,9 @@ case "${1:-}" in
             read_doc "$(sanitize_input "$remaining_args")"
         fi
         ;;
-    hook-check)
-        hook_check
+    search)
+        shift
+        search_docs "$*"
         ;;
     uninstall)
         uninstall
