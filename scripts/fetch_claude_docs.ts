@@ -11,6 +11,7 @@ import { createHash } from 'crypto';
 
 // Configuration
 const SITEMAP_URLS = [
+  "https://code.claude.com/docs/sitemap.xml",
   "https://docs.anthropic.com/sitemap.xml",
   "https://docs.anthropic.com/sitemap_index.xml",
   "https://anthropic.com/sitemap.xml"
@@ -126,8 +127,13 @@ export async function saveManifest(docsDir: string, manifest: Manifest): Promise
  * Convert a URL path to a safe filename.
  */
 export function urlToSafeFilename(urlPath: string): string {
-  // Remove any known prefix patterns
-  const prefixes = ['/en/docs/claude-code/', '/docs/claude-code/', '/claude-code/'];
+  // Remove any known prefix patterns (old and new formats)
+  const prefixes = [
+    '/docs/en/',           // New format: https://code.claude.com/docs/en/overview
+    '/en/docs/claude-code/', // Old format
+    '/docs/claude-code/',
+    '/claude-code/'
+  ];
   let path = urlPath;
 
   for (const prefix of prefixes) {
@@ -137,9 +143,13 @@ export function urlToSafeFilename(urlPath: string): string {
     }
   }
 
-  // If no known prefix, take everything after the last occurrence of 'claude-code/'
-  if (path === urlPath && urlPath.includes('claude-code/')) {
-    path = urlPath.split('claude-code/').pop()!;
+  // If no known prefix, take everything after the last occurrence of 'claude-code/' or 'docs/en/'
+  if (path === urlPath) {
+    if (urlPath.includes('claude-code/')) {
+      path = urlPath.split('claude-code/').pop()!;
+    } else if (urlPath.includes('/docs/en/')) {
+      path = urlPath.split('/docs/en/').pop()!;
+    }
   }
 
   // If no subdirectories, just use the filename
@@ -208,7 +218,11 @@ export async function discoverClaudeCodePages(sitemapUrl: string): Promise<strin
 
     // Filter for ENGLISH Claude Code documentation pages only
     const claudeCodePages: string[] = [];
-    const englishPatterns = ['/en/docs/claude-code/'];
+    // Support both old and new URL patterns
+    const englishPatterns = [
+      '/docs/en/',            // New format: https://code.claude.com/docs/en/overview
+      '/en/docs/claude-code/' // Old format (kept for backward compatibility)
+    ];
 
     for (const url of urls) {
       // Check if URL matches English pattern specifically
