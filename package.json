@@ -4,7 +4,9 @@
   "description": "Claude Code Documentation Mirror - TypeScript version using Bun",
   "type": "module",
   "scripts": {
-    "fetch-docs": "bun run scripts/fetch_claude_docs.ts"
+    "fetch-docs": "bun run scripts/fetch_claude_docs.ts",
+    "test": "bun test",
+    "test:coverage": "bun test --coverage"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -72,7 +72,7 @@ const log = {
 /**
  * Load the manifest of previously fetched files.
  */
-async function loadManifest(docsDir: string): Promise<Manifest> {
+export async function loadManifest(docsDir: string): Promise<Manifest> {
   const manifestPath = join(docsDir, MANIFEST_FILE);
   if (existsSync(manifestPath)) {
     try {
@@ -92,7 +92,7 @@ async function loadManifest(docsDir: string): Promise<Manifest> {
 /**
  * Save the manifest of fetched files.
  */
-async function saveManifest(docsDir: string, manifest: Manifest): Promise<void> {
+export async function saveManifest(docsDir: string, manifest: Manifest): Promise<void> {
   const manifestPath = join(docsDir, MANIFEST_FILE);
   manifest.last_updated = new Date().toISOString();
 
@@ -125,7 +125,7 @@ async function saveManifest(docsDir: string, manifest: Manifest): Promise<void> 
 /**
  * Convert a URL path to a safe filename.
  */
-function urlToSafeFilename(urlPath: string): string {
+export function urlToSafeFilename(urlPath: string): string {
   // Remove any known prefix patterns
   const prefixes = ['/en/docs/claude-code/', '/docs/claude-code/', '/claude-code/'];
   let path = urlPath;
@@ -158,7 +158,7 @@ function urlToSafeFilename(urlPath: string): string {
 /**
  * Discover the sitemap URL and extract the base URL from it.
  */
-async function discoverSitemapAndBaseUrl(): Promise<{ sitemapUrl: string; baseUrl: string }> {
+export async function discoverSitemapAndBaseUrl(): Promise<{ sitemapUrl: string; baseUrl: string }> {
   for (const sitemapUrl of SITEMAP_URLS) {
     try {
       log.info(`Trying sitemap: ${sitemapUrl}`);
@@ -189,7 +189,7 @@ async function discoverSitemapAndBaseUrl(): Promise<{ sitemapUrl: string; baseUr
 /**
  * Dynamically discover all Claude Code documentation pages from the sitemap.
  */
-async function discoverClaudeCodePages(sitemapUrl: string): Promise<string[]> {
+export async function discoverClaudeCodePages(sitemapUrl: string): Promise<string[]> {
   log.info("Discovering documentation pages from sitemap...");
 
   try {
@@ -264,7 +264,7 @@ async function discoverClaudeCodePages(sitemapUrl: string): Promise<string[]> {
 /**
  * Validate markdown content.
  */
-function validateMarkdownContent(content: string, filename: string): void {
+export function validateMarkdownContent(content: string, filename: string): void {
   // Check for HTML content
   if (!content || content.startsWith('<!DOCTYPE') || content.slice(0, 100).includes('<html')) {
     throw new Error("Received HTML instead of markdown");
@@ -307,7 +307,7 @@ function validateMarkdownContent(content: string, filename: string): void {
 /**
  * Fetch markdown content with retry logic.
  */
-async function fetchMarkdownContent(path: string, baseUrl: string): Promise<{ filename: string; content: string }> {
+export async function fetchMarkdownContent(path: string, baseUrl: string): Promise<{ filename: string; content: string }> {
   const markdownUrl = `${baseUrl}${path}.md`;
   const filename = urlToSafeFilename(path);
 
@@ -354,7 +354,7 @@ async function fetchMarkdownContent(path: string, baseUrl: string): Promise<{ fi
 /**
  * Check if content has changed based on hash.
  */
-function contentHasChanged(content: string, oldHash: string): boolean {
+export function contentHasChanged(content: string, oldHash: string): boolean {
   const newHash = createHash('sha256').update(content, 'utf-8').digest('hex');
   return newHash !== oldHash;
 }
@@ -362,7 +362,7 @@ function contentHasChanged(content: string, oldHash: string): boolean {
 /**
  * Fetch Claude Code changelog from GitHub repository.
  */
-async function fetchChangelog(): Promise<{ filename: string; content: string }> {
+export async function fetchChangelog(): Promise<{ filename: string; content: string }> {
   const changelogUrl = "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md";
   const filename = "changelog.md";
 
@@ -423,7 +423,7 @@ async function fetchChangelog(): Promise<{ filename: string; content: string }> 
 /**
  * Save markdown file and return its hash.
  */
-async function saveMarkdownFile(docsDir: string, filename: string, content: string): Promise<string> {
+export async function saveMarkdownFile(docsDir: string, filename: string, content: string): Promise<string> {
   const filePath = join(docsDir, filename);
 
   try {
@@ -440,7 +440,7 @@ async function saveMarkdownFile(docsDir: string, filename: string, content: stri
 /**
  * Remove only files that were previously fetched but no longer exist.
  */
-async function cleanupOldFiles(docsDir: string, currentFiles: Set<string>, manifest: Manifest): Promise<void> {
+export async function cleanupOldFiles(docsDir: string, currentFiles: Set<string>, manifest: Manifest): Promise<void> {
   const previousFiles = new Set(Object.keys(manifest.files || {}));
   const filesToRemove = Array.from(previousFiles).filter(f => !currentFiles.has(f));
 
@@ -655,8 +655,10 @@ async function main() {
   }
 }
 
-// Run main function
-main().catch(error => {
-  log.error(`Unhandled error: ${error}`);
-  process.exit(1);
-});
+// Run main function only if this is the main module
+if (import.meta.main) {
+  main().catch(error => {
+    log.error(`Unhandled error: ${error}`);
+    process.exit(1);
+  });
+}
