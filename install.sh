@@ -300,19 +300,46 @@ cleanup_old_installations() {
     if [[ ${#OLD_INSTALLATIONS[@]} -eq 0 ]]; then
         return
     fi
-    
+
     echo ""
     echo "Cleaning up old installations..."
-    echo "Found ${#OLD_INSTALLATIONS[@]} old installation(s) to remove:"
-    
+    echo "Found ${#OLD_INSTALLATIONS[@]} old installation(s) to evaluate:"
+
+    # Get the directory this script is running from (absolute path)
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
     for old_dir in "${OLD_INSTALLATIONS[@]}"; do
         # Skip empty paths
         if [[ -z "$old_dir" ]]; then
             continue
         fi
-        
+
+        # Convert to absolute path for comparison
+        local abs_old_dir="$(cd "$old_dir" 2>/dev/null && pwd || echo "$old_dir")"
+
         echo "  - $old_dir"
-        
+
+        # SAFETY CHECK 1: Never delete the directory we're running from
+        if [[ "$abs_old_dir" == "$script_dir" ]]; then
+            echo "    ⚠️  Preserved (development/source directory - NEVER DELETE)"
+            continue
+        fi
+
+        # SAFETY CHECK 2: Never delete anything under dev/, git-repos/, github/, src/, projects/
+        if [[ "$abs_old_dir" =~ /(dev|git-repos|github|src|projects|workspace)/ ]]; then
+            echo "    ⚠️  Preserved (appears to be development directory)"
+            continue
+        fi
+
+        # SAFETY CHECK 3: Only delete if it's the standard install location or clearly marked old versions
+        if [[ "$abs_old_dir" != "$HOME/.claude-code-docs" ]] && \
+           [[ ! "$abs_old_dir" =~ /\.claude-code-docs$ ]] && \
+           [[ ! "$abs_old_dir" =~ /claude-code-docs-v[0-9] ]]; then
+            echo "    ⚠️  Preserved (non-standard location - manual cleanup required)"
+            echo "        Run: rm -rf \"$old_dir\""
+            continue
+        fi
+
         # Check if it has uncommitted changes
         if [[ -d "$old_dir/.git" ]]; then
             cd "$old_dir"
