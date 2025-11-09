@@ -20,24 +20,22 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         ref: main
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
+
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
       with:
-        python-version: '3.11'
-    
+        bun-version: latest
+
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r scripts/requirements.txt
-    
+      run: bun install
+
     - name: Fetch latest documentation
       id: fetch-docs
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_REF_NAME: ${{ github.ref_name }}
       run: |
-        python scripts/fetch_claude_docs.py || echo "fetch_failed=true" >> $GITHUB_OUTPUT
+        bun run scripts/fetch_claude_docs.ts || echo "fetch_failed=true" >> $GITHUB_OUTPUT
       continue-on-error: true
     
     - name: Check for changes
