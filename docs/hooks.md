@@ -49,7 +49,7 @@ Hooks are organized by matchers, where each matcher can have multiple hooks:
   * `prompt`: (For `type: "prompt"`) The prompt to send to the LLM for evaluation
   * `timeout`: (Optional) How long a hook should run, in seconds, before canceling that specific hook
 
-For events like `UserPromptSubmit`, `Notification`, `Stop`, and `SubagentStop`
+For events like `UserPromptSubmit`, `Stop`, and `SubagentStop`
 that don't use matchers, you can omit the matcher field:
 
 ```json  theme={null}
@@ -297,12 +297,45 @@ Recognizes the same matcher values as PreToolUse.
 
 ### Notification
 
-Runs when Claude Code sends notifications. Notifications are sent when:
+Runs when Claude Code sends notifications. Supports matchers to filter by notification type.
 
-1. Claude needs your permission to use a tool. Example: "Claude needs your
-   permission to use Bash"
-2. The prompt input has been idle for at least 60 seconds. "Claude is waiting
-   for your input"
+**Common matchers:**
+
+* `permission_prompt` - Permission requests from Claude Code
+* `idle_prompt` - When Claude is waiting for user input (after 60+ seconds of idle time)
+* `auth_success` - Authentication success notifications
+* `elicitation_dialog` - When Claude Code needs input for MCP tool elicitation
+
+You can use matchers to run different hooks for different notification types, or omit the matcher to run hooks for all notifications.
+
+**Example: Different notifications for different types**
+
+```json  theme={null}
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/path/to/permission-alert.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/path/to/idle-notification.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ### UserPromptSubmit
 
@@ -468,7 +501,8 @@ The exact schema for `tool_input` and `tool_response` depends on the tool.
   "cwd": "/Users/...",
   "permission_mode": "default",
   "hook_event_name": "Notification",
-  "message": "Task completed successfully"
+  "message": "Claude needs your permission to use Bash",
+  "notification_type": "permission_prompt"
 }
 ```
 
