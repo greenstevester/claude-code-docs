@@ -21,8 +21,8 @@
     "claude-code-on-the-web.md": {
       "original_url": "https://code.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "8ec1a25cb251bb8114d4a4731ed446bd19b3bc6e23aead8621e0ff59ed9c1f17",
-      "last_updated": "2025-11-06T12:07:08.159034"
+      "hash": "e9e191d03031ad481d30645bd1f86dd19ad59d9319be4e73cfd6106c88b96d95",
+      "last_updated": "2025-11-13T00:07:39.097Z"
     },
     "cli-reference.md": {
       "original_url": "https://code.claude.com/docs/en/cli-reference",
@@ -213,8 +213,8 @@
     "setup.md": {
       "original_url": "https://code.claude.com/docs/en/setup",
       "original_md_url": "https://code.claude.com/docs/en/setup.md",
-      "hash": "138f0e9644af27a7c995b60baa943e0dc0b022cf261f94fb72f62a78949001f0",
-      "last_updated": "2025-11-06T15:05:09.430682"
+      "hash": "68551853fb299f0d8277a3f92a4ee30cefd6760c4c54e81e6cfc158971a10245",
+      "last_updated": "2025-11-13T00:07:57.589Z"
     },
     "skills.md": {
       "original_url": "https://code.claude.com/docs/en/skills",
@@ -273,8 +273,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-11-12T12:04:22.846Z",
-    "fetch_duration_seconds": 25.77,
+    "last_fetch_completed": "2025-11-13T00:08:02.248Z",
+    "fetch_duration_seconds": 25.672,
     "total_pages_discovered": 44,
     "pages_fetched_successfully": 45,
     "pages_failed": 0,
@@ -284,7 +284,7 @@
     "total_files": 45,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-11-12T12:04:22.846Z",
+  "last_updated": "2025-11-13T00:08:02.248Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
