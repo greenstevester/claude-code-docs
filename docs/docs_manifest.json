@@ -21,8 +21,8 @@
     "claude-code-on-the-web.md": {
       "original_url": "https://code.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "e9e191d03031ad481d30645bd1f86dd19ad59d9319be4e73cfd6106c88b96d95",
-      "last_updated": "2025-11-13T00:07:39.097Z"
+      "hash": "6f63ca5167f3879ff91071d5dc2af87eada021f388e756cf122fadef7265fbf0",
+      "last_updated": "2025-11-14T12:03:23.662Z"
     },
     "cli-reference.md": {
       "original_url": "https://code.claude.com/docs/en/cli-reference",
@@ -273,8 +273,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-11-14T00:07:56.617Z",
-    "fetch_duration_seconds": 25.546,
+    "last_fetch_completed": "2025-11-14T12:03:46.428Z",
+    "fetch_duration_seconds": 25.235,
     "total_pages_discovered": 44,
     "pages_fetched_successfully": 45,
     "pages_failed": 0,
@@ -284,7 +284,7 @@
     "total_files": 45,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-11-14T00:07:56.617Z",
+  "last_updated": "2025-11-14T12:03:46.428Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
