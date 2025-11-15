@@ -81,8 +81,8 @@
     "hooks.md": {
       "original_url": "https://code.claude.com/docs/en/hooks",
       "original_md_url": "https://code.claude.com/docs/en/hooks.md",
-      "hash": "43e4829c0f9b8d6cac21f6e00d0145392c0cccc8bd46af4169420dbecbbb468c",
-      "last_updated": "2025-11-11T12:03:24.265Z"
+      "hash": "43badc43c19ad6de20c24e5a8fc411bb16f4e1205c8a83093c57b9e9f57c0675",
+      "last_updated": "2025-11-15T00:07:28.688Z"
     },
     "hooks-guide.md": {
       "original_url": "https://code.claude.com/docs/en/hooks-guide",
@@ -267,14 +267,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "50585798039798950de22bd7e962e4cb6cef7b36f9553776aa3f9a57d7f43d9b",
-      "last_updated": "2025-11-11T12:03:41.150Z",
+      "hash": "052c214f910706023bfa2ecc1a1377ef19ceb453477ead55ed115136d3f35da6",
+      "last_updated": "2025-11-15T00:07:47.363Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-11-14T12:03:46.428Z",
-    "fetch_duration_seconds": 25.235,
+    "last_fetch_completed": "2025-11-15T00:07:47.363Z",
+    "fetch_duration_seconds": 27.736,
     "total_pages_discovered": 44,
     "pages_fetched_successfully": 45,
     "pages_failed": 0,
@@ -284,7 +284,7 @@
     "total_files": 45,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-11-14T12:03:46.428Z",
+  "last_updated": "2025-11-15T00:07:47.363Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
