@@ -81,8 +81,8 @@
     "hooks.md": {
       "original_url": "https://code.claude.com/docs/en/hooks",
       "original_md_url": "https://code.claude.com/docs/en/hooks.md",
-      "hash": "43badc43c19ad6de20c24e5a8fc411bb16f4e1205c8a83093c57b9e9f57c0675",
-      "last_updated": "2025-11-15T00:07:28.688Z"
+      "hash": "8774132201b317e72874b96bbcdf1e444555e19872ba40f04d95dbfce6898821",
+      "last_updated": "2025-11-17T12:03:20.921Z"
     },
     "hooks-guide.md": {
       "original_url": "https://code.claude.com/docs/en/hooks-guide",
@@ -267,8 +267,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-11-17T00:08:02.260Z",
-    "fetch_duration_seconds": 33.122,
+    "last_fetch_completed": "2025-11-17T12:03:41.289Z",
+    "fetch_duration_seconds": 28.384,
     "total_pages_discovered": 44,
     "pages_fetched_successfully": 44,
     "pages_failed": 1,
@@ -280,7 +280,7 @@
     "total_files": 44,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-11-17T00:08:02.261Z",
+  "last_updated": "2025-11-17T12:03:41.290Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
