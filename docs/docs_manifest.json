@@ -249,8 +249,8 @@
     "sub-agents.md": {
       "original_url": "https://code.claude.com/docs/en/sub-agents",
       "original_md_url": "https://code.claude.com/docs/en/sub-agents.md",
-      "hash": "04e53693f79a1da0749ad391779f898f27ca82075d8b08a1080f0b2b78966306",
-      "last_updated": "2025-11-27T12:03:35.095Z"
+      "hash": "67c4b290ac00968e3ca3e532231f077f70f0c45f279d0b9b995781d025b9c79b",
+      "last_updated": "2025-12-02T00:08:02.494Z"
     },
     "terminal-config.md": {
       "original_url": "https://code.claude.com/docs/en/terminal-config",
@@ -285,8 +285,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-01T12:03:43.927Z",
-    "fetch_duration_seconds": 26.771,
+    "last_fetch_completed": "2025-12-02T00:08:04.912Z",
+    "fetch_duration_seconds": 27.31,
     "total_pages_discovered": 46,
     "pages_fetched_successfully": 47,
     "pages_failed": 0,
@@ -296,7 +296,7 @@
     "total_files": 47,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-01T12:03:43.927Z",
+  "last_updated": "2025-12-02T00:08:04.913Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
