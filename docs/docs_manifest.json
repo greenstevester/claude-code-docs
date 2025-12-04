@@ -111,8 +111,8 @@
     "jetbrains.md": {
       "original_url": "https://code.claude.com/docs/en/jetbrains",
       "original_md_url": "https://code.claude.com/docs/en/jetbrains.md",
-      "hash": "8f43f8f91fdcfffe765e6cbe9ac9bd8bcc811785b9bbc61dbda3a41d219dc34c",
-      "last_updated": "2025-11-27T12:03:20.803Z"
+      "hash": "883920ba1f69c528d74db7152dae01bfe0829fbfd6f8dd076228f84b26ff63f3",
+      "last_updated": "2025-12-04T12:03:29.357Z"
     },
     "legal-and-compliance.md": {
       "original_url": "https://code.claude.com/docs/en/legal-and-compliance",
@@ -129,8 +129,8 @@
     "mcp.md": {
       "original_url": "https://code.claude.com/docs/en/mcp",
       "original_md_url": "https://code.claude.com/docs/en/mcp.md",
-      "hash": "113db9c390f890e8d9146205869edf05e3e8e32a0e4019893e945a52be096160",
-      "last_updated": "2025-12-03T00:07:42.031Z"
+      "hash": "ee9ab739aaf47a19347f966226892d99958fff8c28834ce2a545190dedb77147",
+      "last_updated": "2025-12-04T12:03:31.146Z"
     },
     "memory.md": {
       "original_url": "https://code.claude.com/docs/en/memory",
@@ -219,14 +219,14 @@
     "settings.md": {
       "original_url": "https://code.claude.com/docs/en/settings",
       "original_md_url": "https://code.claude.com/docs/en/settings.md",
-      "hash": "2174bc19e158d45d66b70a74d307d2f424cb15851afdac783af5131963ef22da",
-      "last_updated": "2025-12-03T00:07:50.994Z"
+      "hash": "c9fb1446b07c6677d6c42f7beb01149f739d4ec17a3143baa9c3eedfe864fd47",
+      "last_updated": "2025-12-04T12:03:40.375Z"
     },
     "setup.md": {
       "original_url": "https://code.claude.com/docs/en/setup",
       "original_md_url": "https://code.claude.com/docs/en/setup.md",
-      "hash": "97ea1b97b4fb5ce9f2187404523455e29afe4ee1c735146591628c08ef5c73d9",
-      "last_updated": "2025-11-27T12:03:32.739Z"
+      "hash": "295cbe3a750fd868efa9b38fbac05b2b3134f9cc3ae05cfff620b43afc054677",
+      "last_updated": "2025-12-04T12:03:40.984Z"
     },
     "skills.md": {
       "original_url": "https://code.claude.com/docs/en/skills",
@@ -267,8 +267,8 @@
     "troubleshooting.md": {
       "original_url": "https://code.claude.com/docs/en/troubleshooting",
       "original_md_url": "https://code.claude.com/docs/en/troubleshooting.md",
-      "hash": "1b457274e9d1102d3c013b042a9ed3f833a8f579eea54f8ff0f660c18a4f78f6",
-      "last_updated": "2025-11-27T12:03:36.876Z"
+      "hash": "9750947ed8a0b8edb0e9c32c3993252f084693ec9a2f7b2c5ebcfbcddd8f5aa1",
+      "last_updated": "2025-12-04T12:03:45.341Z"
     },
     "vs-code.md": {
       "original_url": "https://code.claude.com/docs/en/vs-code",
@@ -285,8 +285,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-04T00:08:11.690Z",
-    "fetch_duration_seconds": 28.562,
+    "last_fetch_completed": "2025-12-04T12:03:46.010Z",
+    "fetch_duration_seconds": 27.961,
     "total_pages_discovered": 46,
     "pages_fetched_successfully": 47,
     "pages_failed": 0,
@@ -296,7 +296,7 @@
     "total_files": 47,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-04T00:08:11.690Z",
+  "last_updated": "2025-12-04T12:03:46.010Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
