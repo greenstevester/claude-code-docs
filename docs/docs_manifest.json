@@ -219,8 +219,8 @@
     "settings.md": {
       "original_url": "https://code.claude.com/docs/en/settings",
       "original_md_url": "https://code.claude.com/docs/en/settings.md",
-      "hash": "6d78d0b1de0d0d9b65e9cd0db910effc9f09616677aa144e93255e4fa50b224d",
-      "last_updated": "2025-12-08T12:03:36.322Z"
+      "hash": "964e9b652f09de7f5ce3d46479be6191cea42a91eec2a8d72a716c72b6a1345f",
+      "last_updated": "2025-12-10T12:03:37.443Z"
     },
     "setup.md": {
       "original_url": "https://code.claude.com/docs/en/setup",
@@ -243,8 +243,8 @@
     "slash-commands.md": {
       "original_url": "https://code.claude.com/docs/en/slash-commands",
       "original_md_url": "https://code.claude.com/docs/en/slash-commands.md",
-      "hash": "3bee883b3295afb245cc2c391cd85e671a6ac7862bd486cdb12274a2b1943cf1",
-      "last_updated": "2025-12-08T12:03:38.059Z"
+      "hash": "beb94bd0553b3233e53a4ee2b9bdb6c5cb4ccd231c7fe090015672c834a21278",
+      "last_updated": "2025-12-10T12:03:39.786Z"
     },
     "statusline.md": {
       "original_url": "https://code.claude.com/docs/en/statusline",
@@ -285,14 +285,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "dbe12a139b6cea4f2b95bf91e4240920bb294fbe64e82a40d12c0b80f9733785",
-      "last_updated": "2025-12-09T12:03:54.565Z",
+      "hash": "de68745e94476a974245e5fe1767a22c14697a0236c519fcb93c67bc4b5a394e",
+      "last_updated": "2025-12-10T12:03:43.343Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-10T00:08:11.411Z",
-    "fetch_duration_seconds": 27.239,
+    "last_fetch_completed": "2025-12-10T12:03:43.344Z",
+    "fetch_duration_seconds": 27.448,
     "total_pages_discovered": 47,
     "pages_fetched_successfully": 48,
     "pages_failed": 0,
@@ -302,7 +302,7 @@
     "total_files": 48,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-10T00:08:11.412Z",
+  "last_updated": "2025-12-10T12:03:43.344Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
