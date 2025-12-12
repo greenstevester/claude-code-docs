@@ -3,8 +3,8 @@
     "amazon-bedrock.md": {
       "original_url": "https://code.claude.com/docs/en/amazon-bedrock",
       "original_md_url": "https://code.claude.com/docs/en/amazon-bedrock.md",
-      "hash": "9296b17c147185aecc9ab962677437ec6a171a8789105fb84814bfa03f65fa32",
-      "last_updated": "2025-12-08T12:03:14.589Z"
+      "hash": "a7bf981296d86a140210aa4cf10b983521b6b61b504bf7cb97f693c2d2bdad3d",
+      "last_updated": "2025-12-12T00:07:48.722Z"
     },
     "analytics.md": {
       "original_url": "https://code.claude.com/docs/en/analytics",
@@ -105,8 +105,8 @@
     "interactive-mode.md": {
       "original_url": "https://code.claude.com/docs/en/interactive-mode",
       "original_md_url": "https://code.claude.com/docs/en/interactive-mode.md",
-      "hash": "272544d792d051f1cb9ac5b735d9f1e61a8682ad47861d5e08bef216bd280771",
-      "last_updated": "2025-11-27T12:03:20.230Z"
+      "hash": "be6174278ef58f36a197956a0335d49e44094142aa9b9a7686a6502017e67b5c",
+      "last_updated": "2025-12-12T00:08:00.635Z"
     },
     "jetbrains.md": {
       "original_url": "https://code.claude.com/docs/en/jetbrains",
@@ -285,14 +285,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "8525e1bef98d8d77f3d2e8a1c4bc0e7aae8c16a20477f88284c29af53a28d3e7",
-      "last_updated": "2025-12-11T12:03:44.395Z",
+      "hash": "8837c24173af0163f128806452cc1986ffccd0623c386f9894cb919d8f60cd57",
+      "last_updated": "2025-12-12T00:08:21.375Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-11T12:03:44.395Z",
-    "fetch_duration_seconds": 27.515,
+    "last_fetch_completed": "2025-12-12T00:08:21.375Z",
+    "fetch_duration_seconds": 33.78,
     "total_pages_discovered": 47,
     "pages_fetched_successfully": 48,
     "pages_failed": 0,
@@ -302,7 +302,7 @@
     "total_files": 48,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-11T12:03:44.395Z",
+  "last_updated": "2025-12-12T00:08:21.375Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
