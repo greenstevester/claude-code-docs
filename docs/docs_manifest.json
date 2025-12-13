@@ -135,8 +135,8 @@
     "memory.md": {
       "original_url": "https://code.claude.com/docs/en/memory",
       "original_md_url": "https://code.claude.com/docs/en/memory.md",
-      "hash": "7824df90065bd8ec0ee17b916232eefa3849d9be383beaa3aa3cf00c0cf5bd6d",
-      "last_updated": "2025-12-10T00:07:57.288Z"
+      "hash": "bfb0737ddfd8af370ca9574d85d10c84cf4091092b343af03cc3e218d09baa22",
+      "last_updated": "2025-12-13T12:03:03.608Z"
     },
     "microsoft-foundry.md": {
       "original_url": "https://code.claude.com/docs/en/microsoft-foundry",
@@ -285,14 +285,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "9af8abaf709021d5f98a1cb9c40d216296a1b32bb39fd83b1e22253419717756",
-      "last_updated": "2025-12-13T00:08:18.806Z",
+      "hash": "5872262834658022c5cd5eaac6f7cade05b65d21a49eac625e61fd9ba2fc3976",
+      "last_updated": "2025-12-13T12:03:17.782Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-13T00:08:18.807Z",
-    "fetch_duration_seconds": 29.308,
+    "last_fetch_completed": "2025-12-13T12:03:17.782Z",
+    "fetch_duration_seconds": 26.802,
     "total_pages_discovered": 47,
     "pages_fetched_successfully": 48,
     "pages_failed": 0,
@@ -302,7 +302,7 @@
     "total_files": 48,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-13T00:08:18.807Z",
+  "last_updated": "2025-12-13T12:03:17.782Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
