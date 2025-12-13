@@ -33,8 +33,8 @@
     "common-workflows.md": {
       "original_url": "https://code.claude.com/docs/en/common-workflows",
       "original_md_url": "https://code.claude.com/docs/en/common-workflows.md",
-      "hash": "5adcb02275d519001a2a87d6d173a61ed1fa7b23c1d3727ca47c0456c628f78a",
-      "last_updated": "2025-12-08T00:07:50.935Z"
+      "hash": "cdd4557bc66afb224609140f1fa6b92cb90bdb72a1dec0064dbda535396e03f4",
+      "last_updated": "2025-12-13T00:07:53.091Z"
     },
     "costs.md": {
       "original_url": "https://code.claude.com/docs/en/costs",
@@ -105,8 +105,8 @@
     "interactive-mode.md": {
       "original_url": "https://code.claude.com/docs/en/interactive-mode",
       "original_md_url": "https://code.claude.com/docs/en/interactive-mode.md",
-      "hash": "be6174278ef58f36a197956a0335d49e44094142aa9b9a7686a6502017e67b5c",
-      "last_updated": "2025-12-12T00:08:00.635Z"
+      "hash": "41903eba6f86065149723ac3cca642874564f79c53f2bbf7c8bbfa40c3ec1a29",
+      "last_updated": "2025-12-13T00:08:00.435Z"
     },
     "jetbrains.md": {
       "original_url": "https://code.claude.com/docs/en/jetbrains",
@@ -219,14 +219,14 @@
     "settings.md": {
       "original_url": "https://code.claude.com/docs/en/settings",
       "original_md_url": "https://code.claude.com/docs/en/settings.md",
-      "hash": "964e9b652f09de7f5ce3d46479be6191cea42a91eec2a8d72a716c72b6a1345f",
-      "last_updated": "2025-12-10T12:03:37.443Z"
+      "hash": "63c2bf384f023d131eea58deae12fcf59a0a8b57e58b92e2831ee0916d335636",
+      "last_updated": "2025-12-13T00:08:12.554Z"
     },
     "setup.md": {
       "original_url": "https://code.claude.com/docs/en/setup",
       "original_md_url": "https://code.claude.com/docs/en/setup.md",
-      "hash": "683b0cf69987aa8f1bfc5338564d601a350ccec61f1a374d05d1e561a60d5ccb",
-      "last_updated": "2025-12-09T12:03:49.344Z"
+      "hash": "d89c96cf2ccb801612a94a65ceee11e85f01cde829618f123dd9c044fc6a7731",
+      "last_updated": "2025-12-13T00:08:13.208Z"
     },
     "skills.md": {
       "original_url": "https://code.claude.com/docs/en/skills",
@@ -285,14 +285,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "862a8904d6eb2fbe64c50e5c95d660aecad14e2484f21cdd51079439c9a4a988",
-      "last_updated": "2025-12-12T12:03:38.121Z",
+      "hash": "9af8abaf709021d5f98a1cb9c40d216296a1b32bb39fd83b1e22253419717756",
+      "last_updated": "2025-12-13T00:08:18.806Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2025-12-12T12:03:38.122Z",
-    "fetch_duration_seconds": 33.54,
+    "last_fetch_completed": "2025-12-13T00:08:18.807Z",
+    "fetch_duration_seconds": 29.308,
     "total_pages_discovered": 47,
     "pages_fetched_successfully": 48,
     "pages_failed": 0,
@@ -302,7 +302,7 @@
     "total_files": 48,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2025-12-12T12:03:38.122Z",
+  "last_updated": "2025-12-13T00:08:18.807Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
