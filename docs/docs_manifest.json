@@ -51,14 +51,14 @@
     "data-usage.md": {
       "original_url": "https://code.claude.com/docs/en/data-usage",
       "original_md_url": "https://code.claude.com/docs/en/data-usage.md",
-      "hash": "8a6ccd1a1bf61f53783bd41f55829f8c9769bdd83fd2d51ede4ae70b358ef1a5",
-      "last_updated": "2026-01-07T00:06:53.706Z"
+      "hash": "11b7a032425fea5b4cc12a3da655908137337976c53ca45614aa46719adb1fb0",
+      "last_updated": "2026-01-07T12:03:13.607Z"
     },
     "desktop.md": {
       "original_url": "https://code.claude.com/docs/en/desktop",
       "original_md_url": "https://code.claude.com/docs/en/desktop.md",
-      "hash": "dd05d101547f58b52ebae3c15b87b226371522ccd46457a3a19c0f16b1970d33",
-      "last_updated": "2025-12-19T00:08:17.425Z"
+      "hash": "dbadc2bcc3a08b6609b30e739b9633124d55e0f993ac93ea1aaf70438122d5e8",
+      "last_updated": "2026-01-07T12:03:14.199Z"
     },
     "devcontainer.md": {
       "original_url": "https://code.claude.com/docs/en/devcontainer",
@@ -69,8 +69,8 @@
     "discover-plugins.md": {
       "original_url": "https://code.claude.com/docs/en/discover-plugins",
       "original_md_url": "https://code.claude.com/docs/en/discover-plugins.md",
-      "hash": "36e7ef330c71e6829d380828af191c16e4f53b2d1b6927772418666d61403627",
-      "last_updated": "2025-12-27T12:03:06.628Z"
+      "hash": "75fa44d45e3fc9475f41ee57ab54a50e4f1962081e641f3f07f53082f6043198",
+      "last_updated": "2026-01-07T12:03:15.340Z"
     },
     "github-actions.md": {
       "original_url": "https://code.claude.com/docs/en/github-actions",
@@ -297,8 +297,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-07T00:07:17.018Z",
-    "fetch_duration_seconds": 28.694,
+    "last_fetch_completed": "2026-01-07T12:03:36.071Z",
+    "fetch_duration_seconds": 27.332,
     "total_pages_discovered": 48,
     "pages_fetched_successfully": 49,
     "pages_failed": 0,
@@ -308,7 +308,7 @@
     "total_files": 49,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-01-07T00:07:17.018Z",
+  "last_updated": "2026-01-07T12:03:36.071Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
