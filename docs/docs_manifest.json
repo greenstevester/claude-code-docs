@@ -225,14 +225,14 @@
     "settings.md": {
       "original_url": "https://code.claude.com/docs/en/settings",
       "original_md_url": "https://code.claude.com/docs/en/settings.md",
-      "hash": "3df1110cb4b1e739c663de6ef069c1813dcb5b7696ad9d04b2e97f6b5f24e13c",
-      "last_updated": "2026-01-12T00:08:18.869Z"
+      "hash": "06d4fa8c616c6567f40a6e64a8b7f9bc6ba964ba27ed354003a95c584a394a3a",
+      "last_updated": "2026-01-14T00:08:24.204Z"
     },
     "setup.md": {
       "original_url": "https://code.claude.com/docs/en/setup",
       "original_md_url": "https://code.claude.com/docs/en/setup.md",
-      "hash": "528525ae902a267566156c43802f434dc9a434864f13091c975578a8f33be97e",
-      "last_updated": "2026-01-13T00:06:46.559Z"
+      "hash": "a15faa702e3d76bb04647ab9a40e45c994bb7498bd02e5172d75e93f96e79a2d",
+      "last_updated": "2026-01-14T00:08:24.802Z"
     },
     "skills.md": {
       "original_url": "https://code.claude.com/docs/en/skills",
@@ -291,14 +291,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "b70d9f8a9553218f72e47f58e526c6d307dda4e47777b674d2a86348bda58556",
-      "last_updated": "2026-01-13T12:04:04.614Z",
+      "hash": "91d88cc09dc40f20b583d78eb67b24737397a8bc23157e8fba370e1045138c01",
+      "last_updated": "2026-01-14T00:08:30.359Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-13T12:04:04.615Z",
-    "fetch_duration_seconds": 27.704,
+    "last_fetch_completed": "2026-01-14T00:08:30.360Z",
+    "fetch_duration_seconds": 28.817,
     "total_pages_discovered": 48,
     "pages_fetched_successfully": 49,
     "pages_failed": 0,
@@ -308,7 +308,7 @@
     "total_files": 49,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-01-13T12:04:04.615Z",
+  "last_updated": "2026-01-14T00:08:30.360Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
