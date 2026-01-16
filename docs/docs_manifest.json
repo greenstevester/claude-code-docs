@@ -27,8 +27,8 @@
     "claude-code-on-the-web.md": {
       "original_url": "https://code.claude.com/docs/en/claude-code-on-the-web",
       "original_md_url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
-      "hash": "69433dbc0b51edde2ac81e7e83bb31329c37cefad2501931b321dd504f8d5c99",
-      "last_updated": "2026-01-08T00:08:02.276Z"
+      "hash": "5ae89bc6b5755e5095b38f4981fcdfc54f897980a2d9490ea05d3deb6a10230d",
+      "last_updated": "2026-01-16T00:08:00.559Z"
     },
     "cli-reference.md": {
       "original_url": "https://code.claude.com/docs/en/cli-reference",
@@ -291,14 +291,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "91d88cc09dc40f20b583d78eb67b24737397a8bc23157e8fba370e1045138c01",
-      "last_updated": "2026-01-14T00:08:30.359Z",
+      "hash": "76eeaa4d36459f9ad85821e614f05595024994945f0c9158039ce7dcb594aed2",
+      "last_updated": "2026-01-16T00:08:26.763Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-15T12:03:59.307Z",
-    "fetch_duration_seconds": 27.686,
+    "last_fetch_completed": "2026-01-16T00:08:26.764Z",
+    "fetch_duration_seconds": 29.156,
     "total_pages_discovered": 48,
     "pages_fetched_successfully": 49,
     "pages_failed": 0,
@@ -308,7 +308,7 @@
     "total_files": 49,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-01-15T12:03:59.307Z",
+  "last_updated": "2026-01-16T00:08:26.764Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
