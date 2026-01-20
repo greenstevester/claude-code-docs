@@ -237,8 +237,8 @@
     "skills.md": {
       "original_url": "https://code.claude.com/docs/en/skills",
       "original_md_url": "https://code.claude.com/docs/en/skills.md",
-      "hash": "f1b7577f6fc33b5e6c2fc853dce36c784dde2c6ff0a5044212b6842d11ca3ab8",
-      "last_updated": "2026-01-17T00:07:57.077Z"
+      "hash": "b26fc5d49d96086556f1924c9e0fb16e7e87b4d5961d521abcc78d626bae7bc8",
+      "last_updated": "2026-01-20T12:04:15.968Z"
     },
     "slack.md": {
       "original_url": "https://code.claude.com/docs/en/slack",
@@ -297,8 +297,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-01-20T00:08:09.848Z",
-    "fetch_duration_seconds": 28.711,
+    "last_fetch_completed": "2026-01-20T12:04:20.604Z",
+    "fetch_duration_seconds": 27.177,
     "total_pages_discovered": 48,
     "pages_fetched_successfully": 49,
     "pages_failed": 0,
@@ -308,7 +308,7 @@
     "total_files": 49,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-01-20T00:08:09.849Z",
+  "last_updated": "2026-01-20T12:04:20.605Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
