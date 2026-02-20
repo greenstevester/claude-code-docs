@@ -57,8 +57,8 @@
     "common-workflows.md": {
       "original_url": "https://code.claude.com/docs/en/common-workflows",
       "original_md_url": "https://code.claude.com/docs/en/common-workflows.md",
-      "hash": "79029abbe9aefd12f08023a4a2bd3e25ce3d86c4200f1343c381047af5657ea6",
-      "last_updated": "2026-02-19T00:11:29.545Z"
+      "hash": "6558bd693fc00481eff523df82a96e5b1e2e4c09827ff556ec7e655b7d20adfa",
+      "last_updated": "2026-02-20T00:09:57.455Z"
     },
     "costs.md": {
       "original_url": "https://code.claude.com/docs/en/costs",
@@ -69,8 +69,8 @@
     "data-usage.md": {
       "original_url": "https://code.claude.com/docs/en/data-usage",
       "original_md_url": "https://code.claude.com/docs/en/data-usage.md",
-      "hash": "cb2029c9c23c0226b49613cebcd96576b6a6bdf39231e7884c5da76de0f79c76",
-      "last_updated": "2026-02-02T00:10:32.378Z"
+      "hash": "f536bb85b8d8e596c62071cd3533fe82b20b4b0139115e7b269f49235302e721",
+      "last_updated": "2026-02-20T00:09:58.566Z"
     },
     "desktop.md": {
       "original_url": "https://code.claude.com/docs/en/desktop",
@@ -105,8 +105,8 @@
     "features-overview.md": {
       "original_url": "https://code.claude.com/docs/en/features-overview",
       "original_md_url": "https://code.claude.com/docs/en/features-overview.md",
-      "hash": "04e293e08538335b0d840a957bd526226ecc435e6e022420a6bbcffa121d69f5",
-      "last_updated": "2026-02-06T00:07:57.852Z"
+      "hash": "0f6bde6f5786491feb50dfc3127f2569d224cad7b2a1f318bbd3e0f3c4ec35d9",
+      "last_updated": "2026-02-20T00:10:02.009Z"
     },
     "github-actions.md": {
       "original_url": "https://code.claude.com/docs/en/github-actions",
@@ -135,8 +135,8 @@
     "hooks.md": {
       "original_url": "https://code.claude.com/docs/en/hooks",
       "original_md_url": "https://code.claude.com/docs/en/hooks.md",
-      "hash": "eb5160ede1d522936a24250900fcfac8c8fa63e1e6405eeaede9f6512aba0789",
-      "last_updated": "2026-02-19T00:11:37.179Z"
+      "hash": "cf93a3e870cb5747295b2ae0031a335b492e19759ba2497f7913c8384d6a8191",
+      "last_updated": "2026-02-20T00:10:04.840Z"
     },
     "hooks-guide.md": {
       "original_url": "https://code.claude.com/docs/en/hooks-guide",
@@ -147,8 +147,8 @@
     "how-claude-code-works.md": {
       "original_url": "https://code.claude.com/docs/en/how-claude-code-works",
       "original_md_url": "https://code.claude.com/docs/en/how-claude-code-works.md",
-      "hash": "0c7f3e8abd9508e7dc0fdad0fd069097a967208e7401fdc9920be96c28572218",
-      "last_updated": "2026-02-19T00:11:38.394Z"
+      "hash": "b0b5d422906618bc915d2aebf9c8c3847542239462b4a186d4011e85726f0bf7",
+      "last_updated": "2026-02-20T00:10:05.976Z"
     },
     "interactive-mode.md": {
       "original_url": "https://code.claude.com/docs/en/interactive-mode",
@@ -243,8 +243,8 @@
     "plugins.md": {
       "original_url": "https://code.claude.com/docs/en/plugins",
       "original_md_url": "https://code.claude.com/docs/en/plugins.md",
-      "hash": "60b31813cdc6ccf317b6482d670ffbd03ae3499baaa5b2b228ef415835bce081",
-      "last_updated": "2026-02-06T00:08:11.807Z"
+      "hash": "235236e11503864b2c8798466683e514c26de7fefb17c570b8db19d41932ff71",
+      "last_updated": "2026-02-20T00:10:15.417Z"
     },
     "plugins-reference.md": {
       "original_url": "https://code.claude.com/docs/en/plugins-reference",
@@ -339,14 +339,14 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "b0dfd949d74bfcf336fd807197b472100d0b5e87c548106a3521a7cdfed7b6b5",
-      "last_updated": "2026-02-19T00:11:56.667Z",
+      "hash": "89844bcc6fd71035ce603783569c8f35d2deba73937f50ab3cdf54cc9b0bc23e",
+      "last_updated": "2026-02-20T00:10:24.029Z",
       "source": "claude-code-repository"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-02-19T12:09:35.102Z",
-    "fetch_duration_seconds": 32.686,
+    "last_fetch_completed": "2026-02-20T00:10:24.030Z",
+    "fetch_duration_seconds": 31.885,
     "total_pages_discovered": 56,
     "pages_fetched_successfully": 57,
     "pages_failed": 0,
@@ -356,7 +356,7 @@
     "total_files": 57,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-02-19T12:09:35.103Z",
+  "last_updated": "2026-02-20T00:10:24.030Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
