@@ -67,6 +67,12 @@
       "hash": "1fd3acbb493a83bf1f043c67651739822664f5d527d311c10b5b22f128d0fd06",
       "last_updated": "2026-03-27T00:13:15.896Z"
     },
+    "claude-directory.md": {
+      "original_url": "https://code.claude.com/docs/en/claude-directory",
+      "original_md_url": "https://code.claude.com/docs/en/claude-directory.md",
+      "hash": "a8e5c317f4d906b84cd9e905dd5aec67bfbdf25a923a002eff561d49b17afb84",
+      "last_updated": "2026-03-27T12:11:15.067Z"
+    },
     "cli-reference.md": {
       "original_url": "https://code.claude.com/docs/en/cli-reference",
       "original_md_url": "https://code.claude.com/docs/en/cli-reference.md",
@@ -76,8 +82,8 @@
     "code-review.md": {
       "original_url": "https://code.claude.com/docs/en/code-review",
       "original_md_url": "https://code.claude.com/docs/en/code-review.md",
-      "hash": "6c4b830900ad8ac122d933a3d2244b52c994404eec9308d8af50c284d79197f7",
-      "last_updated": "2026-03-18T12:12:33.736Z"
+      "hash": "f80ebd85c8728723eb9603d2370abe26b741a792a5c1691532de9c47814c69c7",
+      "last_updated": "2026-03-27T12:11:16.215Z"
     },
     "commands.md": {
       "original_url": "https://code.claude.com/docs/en/commands",
@@ -250,8 +256,8 @@
     "monitoring-usage.md": {
       "original_url": "https://code.claude.com/docs/en/monitoring-usage",
       "original_md_url": "https://code.claude.com/docs/en/monitoring-usage.md",
-      "hash": "558215a8b955a6a7aa544ef747a3e157c441bf18eb6f8b9ef04fbfb885eb6263",
-      "last_updated": "2026-03-26T00:14:06.049Z"
+      "hash": "f3cb10aa82732ab500f4873f74b03b6d9cc7cc1f2f4e7017e56f4b135d0c2e72",
+      "last_updated": "2026-03-27T12:11:33.029Z"
     },
     "network-config.md": {
       "original_url": "https://code.claude.com/docs/en/network-config",
@@ -429,18 +435,18 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-03-27T00:13:53.463Z",
-    "fetch_duration_seconds": 45.066,
-    "total_pages_discovered": 71,
-    "pages_fetched_successfully": 72,
+    "last_fetch_completed": "2026-03-27T12:11:49.891Z",
+    "fetch_duration_seconds": 41.516,
+    "total_pages_discovered": 72,
+    "pages_fetched_successfully": 73,
     "pages_failed": 0,
     "failed_pages": [],
     "sitemap_url": "https://code.claude.com/docs/sitemap.xml",
     "base_url": "https://code.claude.com",
-    "total_files": 71,
+    "total_files": 72,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-03-27T00:13:53.463Z",
+  "last_updated": "2026-03-27T12:11:49.891Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
