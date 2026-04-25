@@ -705,8 +705,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-04-25T00:18:15.782Z",
-    "fetch_duration_seconds": 64.176,
+    "last_fetch_completed": "2026-04-25T12:10:47.681Z",
+    "fetch_duration_seconds": 62.069,
     "total_pages_discovered": 117,
     "pages_fetched_successfully": 118,
     "pages_failed": 0,
@@ -716,7 +716,7 @@
     "total_files": 117,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-04-25T00:18:15.783Z",
+  "last_updated": "2026-04-25T12:10:47.681Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
