@@ -243,8 +243,8 @@
     "changelog.md": {
       "original_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
       "original_raw_url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md",
-      "hash": "b5f133b2f21b5976d97f5fbc1878a7a88b9e73234ae1e977bdced793ed21c1d0",
-      "last_updated": "2026-06-06T12:25:18.833Z",
+      "hash": "ed39af570f6a1d6073de3ddb29338cb72bde335646010d3ab124105a735db1f0",
+      "last_updated": "2026-06-07T00:31:58.103Z",
       "source": "claude-code-repository"
     },
     "channels.md": {
@@ -873,8 +873,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-06-06T12:25:18.834Z",
-    "fetch_duration_seconds": 123.269,
+    "last_fetch_completed": "2026-06-07T00:31:58.104Z",
+    "fetch_duration_seconds": 107.237,
     "total_pages_discovered": 145,
     "pages_fetched_successfully": 146,
     "pages_failed": 0,
@@ -884,7 +884,7 @@
     "total_files": 145,
     "fetch_tool_version": "3.0-TS"
   },
-  "last_updated": "2026-06-06T12:25:18.834Z",
+  "last_updated": "2026-06-07T00:31:58.104Z",
   "github_repository": "greenstevester/claude-code-docs",
   "github_ref": "main",
   "base_url": "https://raw.githubusercontent.com/greenstevester/claude-code-docs/main/docs/",
